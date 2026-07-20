@@ -1,0 +1,66 @@
+aid: mystate-bank
+name: MyState Bank
+review:
+  question: Does MyState Bank expose a live, public API surface, and what is the provenance of its API contract?
+  answer: true
+  date: '2026-07-20'
+  reviewer: API Evangelist
+findings:
+  summary: |
+    MyState Bank's public API posture is defined entirely by its obligations as
+    an authorised deposit-taking institution (ADI) and CDR data holder under the
+    Australian Consumer Data Right. It exposes a live, public, unauthenticated
+    Product Reference Data (PRD) API at https://public.cdr.mystate.com.au/cds-au/v1,
+    confirmed on 2026-07-20 returning HTTP 200 with a JSON data.products array and
+    an x-v: 3 response header on GET /banking/products, and HTTP 200 on
+    GET /banking/products/{productId}. There is no separate MyState developer
+    portal: developer.mystate.com.au does not resolve, and the bank does not
+    publish an Up-style or NAB/CommBank-style proprietary consumer API. All
+    consumer data sharing beyond PRD runs through the CDR framework rather than a
+    bank-owned public API program. The only harvestable OpenAPI is the shared
+    DSB Consumer Data Standards (CDS) "Get Products" contract (OpenAPI 3.0.1),
+    NOT a MyState-proprietary specification.
+  cdrPrdConfirmed: true
+  cdrBaseURL: https://public.cdr.mystate.com.au/cds-au/v1
+  developerPortal: none
+  specProvenance: |
+    CDS-standard, not proprietary. openapi/mystate-bank-cds-banking-products-openapi.yml
+    is the shared Data Standards Body (DSB) Consumer Data Standards "Get Products"
+    OpenAPI (title "Consumer Data Standards - Get Products", version 1.0.0,
+    OpenAPI 3.0.1), harvested verbatim from the LukePrior Australian-Open-Banking-Data-Database
+    reference collection. Its servers[] list enumerates multiple ADIs (CommBank,
+    Westpac, ANZ, NAB, BOQ, Macquarie); MyState's own confirmed base URL is
+    https://public.cdr.mystate.com.au/cds-au/v1. The spec describes the standard
+    shared PRD contract every Australian ADI implements, not a MyState-specific one.
+  authModel: |
+    The PRD endpoints are public and require no authentication (only the x-v
+    version header). Authenticated consumer data sharing (accounts, balances,
+    transactions) is governed by the CDR security profile — OAuth2 / OpenID
+    Connect with FAPI, consumer consent, and the Accredited Data Recipient (ADR)
+    model — and is not exposed as a public, self-serve API by the bank.
+  transports:
+    - protocol: REST
+      scheme: https
+      baseURL: https://public.cdr.mystate.com.au/cds-au/v1
+      documented: true
+      note: Public CDR Product Reference Data; confirmed HTTP 200 with x-v 3 on 2026-07-20.
+    - protocol: WebSocket
+      scheme: wss
+      documented: false
+      note: No WebSocket or streaming surface is documented; CDR PRD is request/response REST only.
+  endpointsConfirmedRest:
+    - GET https://public.cdr.mystate.com.au/cds-au/v1/banking/products
+    - GET https://public.cdr.mystate.com.au/cds-au/v1/banking/products/{productId}
+sources:
+  - url: https://public.cdr.mystate.com.au/cds-au/v1/banking/products
+    type: ProductReferenceData
+    note: Live CDR PRD endpoint; returned HTTP 200 with data.products array and x-v 3 header on 2026-07-20.
+  - url: https://github.com/LukePrior/Australian-Open-Banking-Data-Database
+    type: Reference
+    note: Source for MyState's confirmed CDR base URL and for the harvested DSB CDS Get Products OpenAPI.
+  - url: https://consumerdatastandardsaustralia.github.io/standards/
+    type: Standards
+    note: Data Standards Body Consumer Data Standards — canonical human documentation for the PRD contract.
+  - url: https://en.wikipedia.org/wiki/MyState_Limited
+    type: Reference
+    note: MyState Limited (ASX:MYS) group history, ADI status, and 2025 Auswide Bank merger.

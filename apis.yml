@@ -1,0 +1,66 @@
+aid: mystate-bank
+url: https://raw.githubusercontent.com/api-evangelist/mystate-bank/refs/heads/main/apis.yml
+name: MyState Bank
+kind: company
+description: MyState Bank is an Australian retail bank headquartered in Hobart, Tasmania,
+  and the principal banking brand of ASX-listed MyState Limited (ASX:MYS). It traces
+  its origins to a Tasmanian credit union serving teachers, police and nurses, formed
+  its current group in the 2009 merger of Tasmanian Perpetual Trustees and MyState
+  Financial, was authorised to use the MyState Bank name in 2014, and in February
+  2025 completed a merger with Queensland regional lender Auswide Bank to create one
+  of Australia's larger regional banking groups. As an authorised deposit-taking institution
+  (ADI) it is a regulated data holder under the Australian Consumer Data Right (CDR
+  / Open Banking) and exposes a public, unauthenticated Product Reference Data (PRD)
+  API conforming to the Consumer Data Standards (CDS). Consumer data sharing beyond
+  PRD is protected under the CDR's accredited-data-recipient model.
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+tags:
+- Financial
+- Banks
+- Open Banking
+- CDR
+- Consumer Data Right
+- Consumer Banking
+- Australia
+- Product Reference Data
+created: '2026-07-20'
+modified: '2026-07-20'
+specificationVersion: '0.19'
+apis:
+- aid: mystate-bank:mystate-bank-cdr-product-reference-data-api
+  name: MyState Bank CDR Product Reference Data API
+  tags:
+  - CDR
+  - Open Banking
+  - Product Reference Data
+  - Banking
+  - Australia
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://consumerdatastandardsaustralia.github.io/standards/#banking-products
+  baseURL: https://public.cdr.mystate.com.au/cds-au/v1
+  properties:
+  - url: https://consumerdatastandardsaustralia.github.io/standards/#banking-products
+    type: Documentation
+  - url: https://consumerdatastandardsaustralia.github.io/standards/#get-products
+    type: APIReference
+  - url: openapi/mystate-bank-cds-banking-products-openapi.yml
+    type: OpenAPI
+  description: Public, unauthenticated Product Reference Data (PRD) API mandated by
+    the Australian Consumer Data Right. Conforms to the Consumer Data Standards (CDS)
+    with Get Products (GET /banking/products) and Get Product Detail (GET /banking/products/{productId})
+    endpoints, versioned via the x-v header. Confirmed live returning HTTP 200 with
+    a data.products array and x-v 3 on 2026-07-20.
+common:
+- type: Website
+  url: https://www.mystate.com.au/
+- type: LinkedIn
+  url: https://www.linkedin.com/company/mystate-limited
+- type: InvestorRelations
+  url: https://mystatelimited.com.au/
+- type: ProductReferenceData
+  url: https://public.cdr.mystate.com.au/cds-au/v1/banking/products
+- type: Standards
+  url: https://consumerdatastandardsaustralia.github.io/standards/
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com
