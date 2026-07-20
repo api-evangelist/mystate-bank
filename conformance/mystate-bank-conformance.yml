@@ -1,0 +1,35 @@
+generated: '2026-07-20'
+method: derived
+source: openapi/mystate-bank-cds-banking-products-openapi.yml + Consumer Data Standards (CDS)
+standards:
+- id: cdr-consumer-data-right
+  conforms: true
+  evidence: >-
+    Public Product Reference Data (PRD) API mandated by the Australian Consumer
+    Data Right; MyState is a regulated ADI and CDR data holder.
+- id: cds-consumer-data-standards
+  conforms: true
+  evidence: >-
+    Endpoints, schemas (BankingProductV3 / BankingProductDetailV3) and x-cds-type
+    field annotations match the Consumer Data Standards Banking Products payloads.
+- id: cds-versioning-x-v-header
+  conforms: true
+  evidence: required x-v request header + optional x-min-v; x-v echoed in response header
+- id: cds-standard-pagination
+  conforms: true
+  evidence: page / page-size query params; LinksPaginated + MetaPaginated (totalRecords/totalPages)
+- id: json-response-envelope
+  conforms: true
+  evidence: responses wrap data / links / meta per CDS convention
+- id: oauth2
+  conforms: false
+  evidence: PRD API is unauthenticated; no securitySchemes declared
+- id: openid-connect
+  conforms: false
+  evidence: no OIDC on the public PRD surface (lives on the authenticated CDR ADR surface)
+- id: rfc9457-problem-details
+  conforms: false
+  evidence: no application/problem+json responses; CDS uses its own ResponseErrorListV2 envelope
+- id: fapi
+  conforms: false
+  evidence: FAPI applies to the authenticated CDR data-sharing surface, not the public PRD endpoint

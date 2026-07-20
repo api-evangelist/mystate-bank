@@ -51,6 +51,8 @@ apis:
     endpoints, versioned via the x-v header. Confirmed live returning HTTP 200 with
     a data.products array and x-v 3 on 2026-07-20.
 common:
+- type: DomainSecurity
+  url: security/mystate-bank-domain-security.yml
 - type: Website
   url: https://www.mystate.com.au/
 - type: LinkedIn
@@ -61,6 +63,30 @@ common:
   url: https://public.cdr.mystate.com.au/cds-au/v1/banking/products
 - type: Standards
   url: https://consumerdatastandardsaustralia.github.io/standards/
+- type: Support
+  url: https://mystate.com.au/help-centre/open-banking-help/
+- type: PrivacyPolicy
+  url: https://mystate.com.au/legal/privacy-policy/
+- type: TermsOfService
+  url: https://mystate.com.au/legal/
+- type: Conventions
+  url: conventions/mystate-bank-conventions.yml
+- type: Conformance
+  url: conformance/mystate-bank-conformance.yml
+- type: Lifecycle
+  url: lifecycle/mystate-bank-lifecycle.yml
+- type: Deprecation
+  url: https://consumerdatastandardsaustralia.github.io/standards/#versioning
+- type: DataModel
+  url: data-model/mystate-bank-data-model.yml
+- type: MCPServer
+  url: mcp/mystate-bank-mcp.yml
+- type: LLMsTxt
+  url: llms/mystate-bank-llms.txt
+- type: Overlay
+  url: overlays/mystate-bank-cds-banking-products-overlay.yaml
+- type: AgentSkill
+  url: skills/_index.yml
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com

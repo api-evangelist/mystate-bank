@@ -1,0 +1,33 @@
+generated: '2026-07-20'
+method: searched
+source: Consumer Data Standards (CDS) + openapi/mystate-bank-cds-banking-products-openapi.yml
+versioning:
+  scheme: header
+  header: x-v
+  min_header: x-min-v
+  current: '3'
+  docs: https://consumerdatastandardsaustralia.github.io/standards/#versioning
+  detail: >-
+    Endpoint versions are negotiated per request via the x-v / x-min-v headers.
+    The Consumer Data Standards publish a formal, dated version schedule and a
+    managed deprecation/obsolete-version process that data holders like MyState
+    follow; individual endpoint versions are deprecated and retired centrally by
+    the DSB rather than per-holder.
+deprecation:
+  policy_url: https://consumerdatastandardsaustralia.github.io/standards/#versioning
+  detail: >-
+    CDS operates a High Level Standards versioning policy: new endpoint versions
+    are announced with a Future Dated Obligation date, prior versions are marked
+    deprecated, then obsolete on a published timeline. Products themselves also
+    carry effectiveFrom / effectiveTo and lastUpdated timestamps enabling managed
+    product deprecation via the `effective` filter.
+  product_lifecycle_fields:
+  - effectiveFrom
+  - effectiveTo
+  - lastUpdated
+sla:
+  detail: >-
+    Governed by CDR performance requirements / Non-functional Requirements (NFRs)
+    in the Consumer Data Standards rather than a MyState-published SLA page.
+status_page: null
+deprecated_operations: []

@@ -1,0 +1,22 @@
+generated: '2026-07-20'
+method: searched
+source: live probe of /.well-known/* on the CDR PRD host
+host: https://public.cdr.mystate.com.au
+documents:
+- path: /.well-known/security.txt
+  status: 404
+- path: /.well-known/openid-configuration
+  status: 404
+- path: /.well-known/oauth-authorization-server
+  status: 404
+- path: /.well-known/api-catalog
+  status: 404
+- path: /.well-known/ai-plugin.json
+  status: 404
+notes: >-
+  No .well-known discovery documents are published on the public CDR Product
+  Reference Data host. This is expected: the PRD API is an unauthenticated,
+  read-only endpoint and CDR identity/OIDC discovery lives on the separate
+  accredited-data-recipient (authenticated) infoSec surface, not on the public
+  PRD host. The main website /.well-known/security.txt returns 403 (WAF), not a
+  published security.txt.

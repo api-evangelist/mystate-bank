@@ -1,0 +1,23 @@
+generated: '2026-07-20'
+method: derived
+status: candidate
+source: openapi/mystate-bank-cds-banking-products-openapi.yml
+server:
+  name: mystate-bank-cdr-products
+  transport: http
+  detail: >-
+    No official hosted MCP server is published by MyState. This is a DERIVED
+    candidate tool surface mapping the two public PRD operations one-to-one.
+    Every tool is a read-only GET and requires no authentication.
+tools:
+- name: list_products
+  description: >-
+    List banking products MyState currently offers to the market. Supports
+    effective / updated-since / brand / product-category filters and page /
+    page-size pagination. Requires the x-v header (current version 3).
+  source_operation: openapi/mystate-bank-cds-banking-products-openapi.yml#listProducts
+- name: get_product_detail
+  description: >-
+    Get full detail for a single product by productId, including fees, deposit
+    and lending rates, features, eligibility, constraints and bundles.
+  source_operation: openapi/mystate-bank-cds-banking-products-openapi.yml#getProductDetail

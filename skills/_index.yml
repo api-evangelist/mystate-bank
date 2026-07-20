@@ -1,0 +1,10 @@
+generated: '2026-07-20'
+method: generated
+source: openapi/mystate-bank-cds-banking-products-openapi.yml
+skills:
+- file: mystate-bank-compare-products.md
+  name: Compare MyState Bank banking products
+  api: openapi/mystate-bank-cds-banking-products-openapi.yml
+  operations:
+  - listProducts
+  - getProductDetail

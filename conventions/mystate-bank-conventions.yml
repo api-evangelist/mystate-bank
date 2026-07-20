@@ -1,0 +1,65 @@
+generated: '2026-07-20'
+method: derived
+source: openapi/mystate-bank-cds-banking-products-openapi.yml + Consumer Data Standards (CDS)
+authentication:
+  style: none
+  detail: >-
+    Public, unauthenticated Product Reference Data (PRD) API. No API key, token
+    or OAuth is required. Consumer data sharing beyond PRD is protected under the
+    CDR accredited-data-recipient model on a separate authenticated surface.
+versioning:
+  style: header
+  request_header: x-v
+  request_header_required: true
+  min_version_header: x-min-v
+  response_header: x-v
+  current_version: '3'
+  detail: >-
+    Clients request an endpoint version via the required x-v header (optionally a
+    floor via x-min-v); the data holder echoes the served version in the x-v
+    response header. This is CDS version negotiation, not URI-path versioning.
+pagination:
+  style: page-number
+  params:
+  - page
+  - page-size
+  default_page_size: 25
+  response_links:
+  - self
+  - first
+  - prev
+  - next
+  - last
+  response_meta:
+  - totalRecords
+  - totalPages
+  detail: Standard CDS page-based pagination via LinksPaginated + MetaPaginated.
+idempotency:
+  supported: false
+  detail: >-
+    Read-only API (GET /banking/products, GET /banking/products/{productId}).
+    No mutating operations, so no idempotency-key contract applies.
+filtering:
+  params:
+  - effective   # CURRENT | FUTURE | ALL
+  - updated-since
+  - brand
+  - product-category
+request_tracing:
+  detail: >-
+    The unauthenticated PRD endpoint does not require the x-fapi-interaction-id
+    correlation header that CDS mandates on authenticated data-sharing endpoints.
+error_envelope:
+  format: cds-response-error-list
+  detail: >-
+    Not modelled in this spec (only 200 responses are declared). Per CDS, errors
+    are returned as a ResponseErrorListV2 object with an errors[] array of
+    {code, title, detail, meta}. See conformance/ and lifecycle/.
+rate_limiting:
+  detail: >-
+    Not signalled in the spec. CDS defines unauthenticated traffic thresholds for
+    PRD endpoints at the standards level rather than via response headers.
+related:
+  conformance: conformance/mystate-bank-conformance.yml
+  lifecycle: lifecycle/mystate-bank-lifecycle.yml
+  data_model: data-model/mystate-bank-data-model.yml

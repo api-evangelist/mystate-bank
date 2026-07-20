@@ -1,0 +1,92 @@
+generated: '2026-07-20'
+method: derived
+source: openapi/mystate-bank-cds-banking-products-openapi.yml
+root_entity: BankingProductV3
+id_fields:
+  productId:
+    entity: BankingProductV3
+    type: ASCIIString
+    detail: Data-holder-specific unique identifier; no fixed prefix, not ID-permanence bound.
+entities:
+- name: BankingProductV3
+  detail: Summary product record returned by GET /banking/products.
+- name: BankingProductDetailV3
+  detail: Full product record (allOf BankingProductV3 + detail arrays) returned by GET /banking/products/{productId}.
+- name: BankingProductBundle
+- name: BankingProductFeature
+- name: BankingProductConstraint
+- name: BankingProductEligibility
+- name: BankingProductFee
+- name: BankingProductDiscount
+- name: BankingProductDiscountEligibility
+- name: BankingProductDepositRate
+- name: BankingProductLendingRateV2
+- name: BankingProductRateTierV3
+- name: BankingProductRateCondition
+- name: BankingProductV3_additionalInformation
+- name: BankingProductV3_cardArt
+relationships:
+- from: BankingProductDetailV3
+  to: BankingProductV3
+  kind: extends
+  via: allOf
+- from: BankingProductV3
+  to: BankingProductV3_additionalInformation
+  kind: has_one
+  via: additionalInformation
+- from: BankingProductV3
+  to: BankingProductV3_cardArt
+  kind: has_many
+  via: cardArt
+- from: BankingProductDetailV3
+  to: BankingProductBundle
+  kind: has_many
+  via: bundles
+- from: BankingProductDetailV3
+  to: BankingProductFeature
+  kind: has_many
+  via: features
+- from: BankingProductDetailV3
+  to: BankingProductConstraint
+  kind: has_many
+  via: constraints
+- from: BankingProductDetailV3
+  to: BankingProductEligibility
+  kind: has_many
+  via: eligibility
+- from: BankingProductDetailV3
+  to: BankingProductFee
+  kind: has_many
+  via: fees
+- from: BankingProductDetailV3
+  to: BankingProductDepositRate
+  kind: has_many
+  via: depositRates
+- from: BankingProductDetailV3
+  to: BankingProductLendingRateV2
+  kind: has_many
+  via: lendingRates
+- from: BankingProductFee
+  to: BankingProductDiscount
+  kind: has_many
+  via: discounts
+- from: BankingProductDiscount
+  to: BankingProductDiscountEligibility
+  kind: has_many
+  via: eligibility
+- from: BankingProductDepositRate
+  to: BankingProductRateTierV3
+  kind: has_many
+  via: tiers
+- from: BankingProductLendingRateV2
+  to: BankingProductRateTierV3
+  kind: has_many
+  via: tiers
+- from: BankingProductRateTierV3
+  to: BankingProductRateCondition
+  kind: has_one
+  via: applicabilityConditions
+- from: BankingProductBundle
+  to: BankingProductV3
+  kind: references
+  via: productIds

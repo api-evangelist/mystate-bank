@@ -1,0 +1,30 @@
+# MyState Bank
+
+> MyState Bank is an Australian retail bank headquartered in Hobart, Tasmania, and the principal banking brand of ASX-listed MyState Limited (ASX:MYS). As a regulated authorised deposit-taking institution (ADI) and Consumer Data Right (CDR) data holder, it exposes a public, unauthenticated Product Reference Data (PRD) API conforming to the Consumer Data Standards (CDS). The PRD API is read-only and requires no authentication; consumer data sharing beyond PRD is governed by the CDR accredited-data-recipient model.
+
+## APIs
+
+- [MyState Bank CDR Product Reference Data API](https://consumerdatastandardsaustralia.github.io/standards/#banking-products): Get Products and Get Product Detail. Base URL https://public.cdr.mystate.com.au/cds-au/v1 (confirmed live, HTTP 200, x-v 3). Unauthenticated, read-only.
+
+## Specs
+
+- [OpenAPI](https://raw.githubusercontent.com/api-evangelist/mystate-bank/refs/heads/main/openapi/mystate-bank-cds-banking-products-openapi.yml): CDS Banking Products OpenAPI 3.0.1
+- [OpenAPI Overlay](https://raw.githubusercontent.com/api-evangelist/mystate-bank/refs/heads/main/overlays/mystate-bank-cds-banking-products-overlay.yaml): API Evangelist enhancements
+
+## Artifacts
+
+- [Conventions](https://raw.githubusercontent.com/api-evangelist/mystate-bank/refs/heads/main/conventions/mystate-bank-conventions.yml): auth, versioning (x-v), pagination, error envelope
+- [Conformance](https://raw.githubusercontent.com/api-evangelist/mystate-bank/refs/heads/main/conformance/mystate-bank-conformance.yml): CDR / CDS conformance assertions
+- [Lifecycle](https://raw.githubusercontent.com/api-evangelist/mystate-bank/refs/heads/main/lifecycle/mystate-bank-lifecycle.yml): CDS version negotiation + deprecation policy
+- [Data Model](https://raw.githubusercontent.com/api-evangelist/mystate-bank/refs/heads/main/data-model/mystate-bank-data-model.yml): BankingProduct entity graph
+- [MCP (candidate)](https://raw.githubusercontent.com/api-evangelist/mystate-bank/refs/heads/main/mcp/mystate-bank-mcp.yml): derived candidate tool surface
+- [Domain Security](https://raw.githubusercontent.com/api-evangelist/mystate-bank/refs/heads/main/security/mystate-bank-domain-security.yml): TLS/HSTS/SPF/DMARC probe
+- [Agent Skill](https://raw.githubusercontent.com/api-evangelist/mystate-bank/refs/heads/main/skills/_index.yml): compare banking products
+
+## Docs
+
+- [Open Banking help](https://mystate.com.au/help-centre/open-banking-help/)
+- [Consumer Data Right Policy (PDF)](https://mystate.com.au/wp-content/uploads/cdr_policy.pdf)
+- [Privacy Policy](https://mystate.com.au/legal/privacy-policy/)
+- [Legal / Terms](https://mystate.com.au/legal/)
+- [Consumer Data Standards](https://consumerdatastandardsaustralia.github.io/standards/)

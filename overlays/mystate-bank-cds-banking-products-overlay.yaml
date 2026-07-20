@@ -1,0 +1,25 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for MyState Bank CDR Product Reference Data API
+  version: 1.0.0
+extends: openapi/mystate-bank-cds-banking-products-openapi.yml
+actions:
+- target: $.info
+  update:
+    x-apievangelist-provider: mystate-bank
+    x-apievangelist-standard: Consumer Data Standards (CDS) Banking Products
+    x-apievangelist-auth: none-public-prd
+    x-apievangelist-versioning: header x-v (current 3)
+- target: $.servers
+  description: >-
+    The harvested spec lists every Australian CDR data holder as a server. For
+    MyState specifically, the confirmed-live PRD base URL is
+    https://public.cdr.mystate.com.au/cds-au/v1 (HTTP 200, x-v 3, verified 2026-07-20).
+  update:
+    x-apievangelist-canonical-server: https://public.cdr.mystate.com.au/cds-au/v1
+- target: $.paths./banking/products.get
+  update:
+    x-apievangelist-note: Unauthenticated read; safe for agent connected/read access.
+- target: $.paths./banking/products/{productId}.get
+  update:
+    x-apievangelist-note: Unauthenticated read; safe for agent connected/read access.
