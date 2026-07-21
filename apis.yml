@@ -24,7 +24,7 @@ tags:
 - Australia
 - Product Reference Data
 created: '2026-07-20'
-modified: '2026-07-20'
+modified: '2026-07-21'
 specificationVersion: '0.19'
 apis:
 - aid: mystate-bank:mystate-bank-cdr-product-reference-data-api
@@ -36,20 +36,123 @@ apis:
   - Banking
   - Australia
   image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://consumerdatastandardsaustralia.github.io/standards/#banking-products
-  baseURL: https://public.cdr.mystate.com.au/cds-au/v1
+  humanURL: https://mystate.com.au/help-centre/open-banking-help/
+  baseURL: https://public.cdr.mystate.com.au/cds-au/v1/banking/products
   properties:
-  - url: https://consumerdatastandardsaustralia.github.io/standards/#banking-products
+  - url: https://mystate.com.au/help-centre/open-banking-help/
     type: Documentation
   - url: https://consumerdatastandardsaustralia.github.io/standards/#get-products
     type: APIReference
   - url: openapi/mystate-bank-cds-banking-products-openapi.yml
     type: OpenAPI
-  description: Public, unauthenticated Product Reference Data (PRD) API mandated by
-    the Australian Consumer Data Right. Conforms to the Consumer Data Standards (CDS)
-    with Get Products (GET /banking/products) and Get Product Detail (GET /banking/products/{productId})
-    endpoints, versioned via the x-v header. Confirmed live returning HTTP 200 with
-    a data.products array and x-v 3 on 2026-07-20.
+  description: Public, UNAUTHENTICATED Product Reference Data (PRD) API mandated by
+    the Australian Consumer Data Right and conforming to the shared DSB Consumer Data
+    Standards (CDS) Banking API. Exposes Get Products (GET /banking/products) and Get
+    Product Detail (GET /banking/products/{productId}), versioned via the x-v header,
+    for openly discovering MyState Bank's accounts, loans and card products. Confirmed
+    live returning HTTP 200 with a data.products array and x-v 3 on 2026-07-20.
+- aid: mystate-bank:mystate-bank-cdr-accounts-balances-api
+  name: MyState Bank CDR Accounts & Balances API
+  tags:
+  - CDR
+  - Open Banking
+  - Accounts
+  - Balances
+  - Banking
+  - Australia
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://mystate.com.au/help-centre/open-banking-help/
+  baseURL: https://public.cdr.mystate.com.au/cds-au/v1/banking/accounts
+  properties:
+  - url: https://mystate.com.au/help-centre/open-banking-help/
+    type: Documentation
+  - url: https://consumerdatastandardsaustralia.github.io/standards/#get-accounts
+    type: APIReference
+  - url: openapi/mystate-bank-cds-banking-openapi.yml
+    type: OpenAPI
+  description: Consumer-AUTHORIZED CDR banking surface for accounts and balances,
+    implementing the shared DSB Consumer Data Standards Banking API. Covers Get Accounts
+    (GET /banking/accounts), Get Bulk Balances (GET /banking/accounts/balances), Get
+    Account Balance (GET /banking/accounts/{accountId}/balance) and Get Account Detail
+    (GET /banking/accounts/{accountId}). Access requires an explicit consumer authorisation
+    obtained by an Accredited Data Recipient (ADR) over the CDR mTLS/FAPI security
+    profile; these endpoints are not publicly callable without a valid consent and
+    token.
+- aid: mystate-bank:mystate-bank-cdr-transactions-api
+  name: MyState Bank CDR Transactions API
+  tags:
+  - CDR
+  - Open Banking
+  - Transactions
+  - Banking
+  - Australia
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://mystate.com.au/help-centre/open-banking-help/
+  baseURL: https://public.cdr.mystate.com.au/cds-au/v1/banking/accounts
+  properties:
+  - url: https://mystate.com.au/help-centre/open-banking-help/
+    type: Documentation
+  - url: https://consumerdatastandardsaustralia.github.io/standards/#get-transactions-for-account
+    type: APIReference
+  - url: openapi/mystate-bank-cds-banking-openapi.yml
+    type: OpenAPI
+  description: Consumer-AUTHORIZED CDR transactions surface implementing the shared
+    DSB Consumer Data Standards Banking API. Covers Get Transactions For Account (GET
+    /banking/accounts/{accountId}/transactions) and Get Transaction Detail (GET /banking/accounts/{accountId}/transactions/{transactionId}),
+    supporting date, amount and text filtering. Access requires an explicit consumer
+    authorisation obtained by an Accredited Data Recipient (ADR) over the CDR mTLS/FAPI
+    security profile; not publicly callable without a valid consent and token.
+- aid: mystate-bank:mystate-bank-cdr-direct-debits-scheduled-payments-api
+  name: MyState Bank CDR Direct Debits & Scheduled Payments API
+  tags:
+  - CDR
+  - Open Banking
+  - Direct Debits
+  - Scheduled Payments
+  - Banking
+  - Australia
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://mystate.com.au/help-centre/open-banking-help/
+  baseURL: https://public.cdr.mystate.com.au/cds-au/v1/banking/accounts
+  properties:
+  - url: https://mystate.com.au/help-centre/open-banking-help/
+    type: Documentation
+  - url: https://consumerdatastandardsaustralia.github.io/standards/#get-direct-debits-for-account
+    type: APIReference
+  - url: openapi/mystate-bank-cds-banking-openapi.yml
+    type: OpenAPI
+  description: Consumer-AUTHORIZED CDR surface for regular payment arrangements, implementing
+    the shared DSB Consumer Data Standards Banking API. Covers Get Direct Debits For
+    Account and Get Bulk Direct Debits (/banking/accounts/{accountId}/direct-debits,
+    /banking/accounts/direct-debits), plus Get Scheduled Payments For Account and Get
+    Bulk Scheduled Payments (/banking/accounts/{accountId}/payments/scheduled, /banking/payments/scheduled).
+    Access requires an explicit consumer authorisation obtained by an Accredited Data
+    Recipient (ADR) over the CDR mTLS/FAPI security profile; not publicly callable
+    without a valid consent and token.
+- aid: mystate-bank:mystate-bank-cdr-payees-api
+  name: MyState Bank CDR Payees API
+  tags:
+  - CDR
+  - Open Banking
+  - Payees
+  - Banking
+  - Australia
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://mystate.com.au/help-centre/open-banking-help/
+  baseURL: https://public.cdr.mystate.com.au/cds-au/v1/banking/payees
+  properties:
+  - url: https://mystate.com.au/help-centre/open-banking-help/
+    type: Documentation
+  - url: https://consumerdatastandardsaustralia.github.io/standards/#get-payees
+    type: APIReference
+  - url: openapi/mystate-bank-cds-banking-openapi.yml
+    type: OpenAPI
+  description: Consumer-AUTHORIZED CDR payees surface implementing the shared DSB Consumer
+    Data Standards Banking API. Covers Get Payees (GET /banking/payees) and Get Payee
+    Detail (GET /banking/payees/{payeeId}), returning a consumer's saved payee list
+    and per-payee detail. Access requires an explicit consumer authorisation obtained
+    by an Accredited Data Recipient (ADR) over the CDR mTLS/FAPI security profile;
+    not publicly callable without a valid consent and token.
 common:
 - type: DomainSecurity
   url: security/mystate-bank-domain-security.yml
