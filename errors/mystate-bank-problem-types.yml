@@ -1,0 +1,101 @@
+generated: '2026-07-21'
+method: derived
+source: >-
+  openapi/mystate-bank-cds-banking-openapi.yml (declared 400/404/406/422
+  responses) enriched from the shared Consumer Data Standards error registry
+  https://consumerdatastandardsaustralia.github.io/standards/#error-codes
+format: cds-response-error-list
+envelope:
+  schema: ResponseErrorListV2
+  shape: >-
+    Errors are returned as a ResponseErrorListV2 object with an errors[] array of
+    {code, title, detail, meta}. `code` is the standardized CDS URN
+    (urn:au-cds:error:v2:...), `title` is a short human label, `detail` is
+    context-specific, and `meta` optionally carries urn/field pointers. This is
+    the CDS error envelope, NOT RFC 9457 application/problem+json.
+notes: >-
+  Only the shared, mandated CDS Banking surface (banking spec) declares 4xx
+  responses. The public Product Reference Data spec declares only 200 responses,
+  but a conforming data holder still returns the same ResponseErrorListV2 envelope
+  with the 400/406/422 header/field codes below.
+problems:
+- status: 400
+  code: urn:au-cds:error:v2:field/invalid
+  title: Invalid Field
+  detail: A supplied field failed CDS validation.
+  anchor: '#error-400-field-invalid'
+- status: 400
+  code: urn:au-cds:error:v2:field/missing
+  title: Missing Required Field
+  detail: A field required by the endpoint was not supplied.
+  anchor: '#error-400-field-missing'
+- status: 400
+  code: urn:au-cds:error:v2:field/invalid-date-time
+  title: Invalid Date
+  detail: A supplied date/date-time field is not a valid value.
+  anchor: '#error-400-field-invalid-date-time'
+- status: 400
+  code: urn:au-cds:error:v2:field/invalid-page-size
+  title: Invalid Page Size
+  detail: The page-size query parameter is outside the permitted range.
+  anchor: '#error-400-field-invalid-page-size'
+- status: 400
+  code: urn:au-cds:error:v2:header/missing
+  title: Missing Required Header
+  detail: A required header (e.g. x-v) was not supplied.
+  anchor: '#error-400-header-missing'
+- status: 400
+  code: urn:au-cds:error:v2:header/invalid-version
+  title: Invalid Version
+  detail: The x-v / x-min-v header value is not a valid positive integer.
+  anchor: '#error-400-header-invalid-version'
+- status: 404
+  code: urn:au-cds:error:v2:resource/invalid
+  title: Invalid Resource
+  detail: The requested resource identifier is syntactically invalid.
+  anchor: '#error-404-resource-invalid'
+- status: 404
+  code: urn:au-cds:error:v2:resource/not-implemented
+  title: Not Implemented
+  detail: The requested resource/endpoint is not implemented by this data holder.
+  anchor: '#error-404-resource-not-implemented'
+- status: 404
+  code: urn:au-cds:error:v2:resource/unavailable
+  title: Unavailable Resource
+  detail: The requested resource is currently unavailable.
+  anchor: '#error-404-resource-unavailable'
+- status: 404
+  code: urn:au-cds:error:v2:authorisation/unavailable-banking-account
+  title: Unavailable Banking Account
+  detail: The referenced banking account is not available under the current consent.
+  anchor: '#error-404-authorisation-unavailable-banking-account'
+- status: 404
+  code: urn:au-cds:error:v2:authorisation/invalid-banking-account
+  title: Invalid Banking Account
+  detail: The referenced banking account identifier is invalid.
+  anchor: '#error-404-authorisation-invalid-banking-account'
+- status: 406
+  code: urn:au-cds:error:v2:header/unsupported-version
+  title: Unsupported Version
+  detail: >-
+    The requested endpoint version (x-v / x-min-v range) is not supported by the
+    data holder. Also returned when an unsupported media type is negotiated.
+  anchor: '#error-406-header-unsupported-version'
+- status: 422
+  code: urn:au-cds:error:v2:field/invalid-page
+  title: Invalid Page
+  detail: The requested page number is out of range for the result set.
+  anchor: '#error-422-field-invalid-page'
+- status: 422
+  code: urn:au-cds:error:v2:authorisation/unavailable-banking-account
+  title: Unavailable Banking Account
+  detail: The referenced banking account is not available for this authorisation.
+  anchor: '#error-422-authorisation-unavailable-banking-account'
+- status: 422
+  code: urn:au-cds:error:v2:authorisation/invalid-banking-account
+  title: Invalid Banking Account
+  detail: The referenced banking account identifier is invalid for this authorisation.
+  anchor: '#error-422-authorisation-invalid-banking-account'
+related:
+  conventions: conventions/mystate-bank-conventions.yml
+  conformance: conformance/mystate-bank-conformance.yml

@@ -168,12 +168,18 @@ common:
   url: https://consumerdatastandardsaustralia.github.io/standards/
 - type: Support
   url: https://mystate.com.au/help-centre/open-banking-help/
+- type: Documentation
+  url: https://mystate.com.au/help-centre/open-banking-help/
 - type: PrivacyPolicy
   url: https://mystate.com.au/legal/privacy-policy/
 - type: TermsOfService
   url: https://mystate.com.au/legal/
 - type: Conventions
   url: conventions/mystate-bank-conventions.yml
+- type: Authentication
+  url: authentication/mystate-bank-authentication.yml
+- type: ErrorCatalog
+  url: errors/mystate-bank-problem-types.yml
 - type: Conformance
   url: conformance/mystate-bank-conformance.yml
 - type: Lifecycle
