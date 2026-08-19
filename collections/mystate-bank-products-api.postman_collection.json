@@ -1,0 +1,316 @@
+{
+  "item": [
+    {
+      "id": "9c6a3d66-4665-47bf-9ebd-c7a8953cb588",
+      "name": "Products",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "5c9e435a-cb4f-4206-8219-12d9fd2cf659",
+          "name": "Get Products",
+          "request": {
+            "name": "Get Products",
+            "description": {
+              "content": "Obtain a list of products from the company that are currently openly offered to the market",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "banking",
+                "products"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "effective",
+                  "value": "<string>",
+                  "description": "Allows for the filtering of products based on whether the current time is within the period of time defined as effective by the effectiveFrom and effectiveTo fields."
+                },
+                {
+                  "disabled": false,
+                  "key": "updated-since",
+                  "value": "<string>",
+                  "description": "Only include products that have been updated after the specified date and time. If absent defaults to include all products"
+                },
+                {
+                  "disabled": false,
+                  "key": "brand",
+                  "value": "<string>",
+                  "description": "Filter results based on a specific brand"
+                },
+                {
+                  "disabled": false,
+                  "key": "product-category",
+                  "value": "<string>",
+                  "description": "Used to filter results on the productCategory field applicable to accounts. Any one of the valid values for this field can be supplied. If absent then all accounts returned."
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>",
+                  "description": "Page of results to request (standard pagination)"
+                },
+                {
+                  "disabled": false,
+                  "key": "page-size",
+                  "value": "<integer>",
+                  "description": "Page size to request. Default is 25 (standard pagination)"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) Version of the API end point requested by the client.",
+                "key": "x-v",
+                "value": "3"
+              },
+              {
+                "disabled": false,
+                "description": "Minimum version of the API end point requested by the client.",
+                "key": "x-min-v",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "bf6ac559-b733-4a57-bc00-5e43ed95426d",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "banking",
+                    "products"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "effective",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "updated-since",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "brand",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "product-category",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page-size",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Version of the API end point requested by the client.",
+                    "key": "x-v",
+                    "value": "3"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Minimum version of the API end point requested by the client.",
+                    "key": "x-min-v",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "The version of the API end point that the data holder has responded with.",
+                  "key": "x-v",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"products\": [\n      {\n        \"brand\": \"string\",\n        \"description\": \"string\",\n        \"isTailored\": true,\n        \"lastUpdated\": \"string\",\n        \"name\": \"string\",\n        \"productCategory\": \"OVERDRAFTS\",\n        \"productId\": \"string\",\n        \"effectiveFrom\": \"string\",\n        \"effectiveTo\": \"string\",\n        \"brandName\": \"string\",\n        \"applicationUri\": \"string\",\n        \"additionalInformation\": {\n          \"overviewUri\": \"string\",\n          \"termsUri\": \"string\",\n          \"eligibilityUri\": \"string\",\n          \"feesAndPricingUri\": \"string\",\n          \"bundleUri\": \"string\"\n        },\n        \"cardArt\": [\n          {\n            \"imageUri\": \"string\",\n            \"title\": \"string\"\n          },\n          {\n            \"imageUri\": \"string\",\n            \"title\": \"string\"\n          }\n        ]\n      },\n      {\n        \"brand\": \"string\",\n        \"description\": \"string\",\n        \"isTailored\": true,\n        \"lastUpdated\": \"string\",\n        \"name\": \"string\",\n        \"productCategory\": \"TERM_DEPOSITS\",\n        \"productId\": \"string\",\n        \"effectiveFrom\": \"string\",\n        \"effectiveTo\": \"string\",\n        \"brandName\": \"string\",\n        \"applicationUri\": \"string\",\n        \"additionalInformation\": {\n          \"overviewUri\": \"string\",\n          \"termsUri\": \"string\",\n          \"eligibilityUri\": \"string\",\n          \"feesAndPricingUri\": \"string\",\n          \"bundleUri\": \"string\"\n        },\n        \"cardArt\": [\n          {\n            \"imageUri\": \"string\",\n            \"title\": \"string\"\n          },\n          {\n            \"imageUri\": \"string\",\n            \"title\": \"string\"\n          }\n        ]\n      }\n    ]\n  },\n  \"links\": {\n    \"self\": \"string\",\n    \"first\": \"string\",\n    \"prev\": \"string\",\n    \"next\": \"string\",\n    \"last\": \"string\"\n  },\n  \"meta\": {\n    \"totalPages\": 9080,\n    \"totalRecords\": 3344\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "cf77909e-dfc4-4a22-ac84-4d180fb57873",
+          "name": "Get Product Detail",
+          "request": {
+            "name": "Get Product Detail",
+            "description": {
+              "content": "Obtain detailed information on a single product offered openly to the market.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "banking",
+                "products",
+                ":productId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "productId",
+                  "description": "(Required) ID of the specific product requested (found using GET /banking/products)"
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) Version of the API end point requested by the client.",
+                "key": "x-v",
+                "value": "3"
+              },
+              {
+                "disabled": false,
+                "description": "Minimum version of the API end point requested by the client.",
+                "key": "x-min-v",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3b95a2c8-f029-4571-9b62-f8aec1b3d5a9",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "banking",
+                    "products",
+                    ":productId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "productId",
+                      "description": "(Required) ID of the specific product requested (found using GET /banking/products)"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Version of the API end point requested by the client.",
+                    "key": "x-v",
+                    "value": "3"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Minimum version of the API end point requested by the client.",
+                    "key": "x-min-v",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "The version of the API end point that the data holder has responded with.",
+                  "key": "x-v",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"brand\": \"string\",\n    \"description\": \"string\",\n    \"isTailored\": false,\n    \"lastUpdated\": \"string\",\n    \"name\": \"string\",\n    \"productCategory\": \"TRADE_FINANCE\",\n    \"productId\": \"string\",\n    \"effectiveFrom\": \"string\",\n    \"effectiveTo\": \"string\",\n    \"brandName\": \"string\",\n    \"applicationUri\": \"string\",\n    \"additionalInformation\": {\n      \"overviewUri\": \"string\",\n      \"termsUri\": \"string\",\n      \"eligibilityUri\": \"string\",\n      \"feesAndPricingUri\": \"string\",\n      \"bundleUri\": \"string\"\n    },\n    \"cardArt\": [\n      {\n        \"imageUri\": \"string\",\n        \"title\": \"string\"\n      },\n      {\n        \"imageUri\": \"string\",\n        \"title\": \"string\"\n      }\n    ],\n    \"bundles\": [\n      {\n        \"description\": \"string\",\n        \"name\": \"string\",\n        \"additionalInfo\": \"string\",\n        \"additionalInfoUri\": \"string\",\n        \"productIds\": [\n          \"string\",\n          \"string\"\n        ]\n      },\n      {\n        \"description\": \"string\",\n        \"name\": \"string\",\n        \"additionalInfo\": \"string\",\n        \"additionalInfoUri\": \"string\",\n        \"productIds\": [\n          \"string\",\n          \"string\"\n        ]\n      }\n    ],\n    \"features\": [\n      {\n        \"featureType\": \"INTEREST_FREE\",\n        \"additionalValue\": \"string\",\n        \"additionalInfo\": \"string\",\n        \"additionalInfoUri\": \"string\"\n      },\n      {\n        \"featureType\": \"DONATE_INTEREST\",\n        \"additionalValue\": \"string\",\n        \"additionalInfo\": \"string\",\n        \"additionalInfoUri\": \"string\"\n      }\n    ],\n    \"constraints\": [\n      {\n        \"constraintType\": \"OPENING_BALANCE\",\n        \"additionalValue\": \"string\",\n        \"additionalInfo\": \"string\",\n        \"additionalInfoUri\": \"string\"\n      },\n      {\n        \"constraintType\": \"MAX_BALANCE\",\n        \"additionalValue\": \"string\",\n        \"additionalInfo\": \"string\",\n        \"additionalInfoUri\": \"string\"\n      }\n    ],\n    \"eligibility\": [\n      {\n        \"eligibilityType\": \"RESIDENCY_STATUS\",\n        \"additionalValue\": \"string\",\n        \"additionalInfo\": \"string\",\n        \"additionalInfoUri\": \"string\"\n      },\n      {\n        \"eligibilityType\": \"OTHER\",\n        \"additionalValue\": \"string\",\n        \"additionalInfo\": \"string\",\n        \"additionalInfoUri\": \"string\"\n      }\n    ],\n    \"fees\": [\n      {\n        \"feeType\": \"DEPOSIT\",\n        \"name\": \"string\",\n        \"amount\": \"string\",\n        \"balanceRate\": \"string\",\n        \"transactionRate\": \"string\",\n        \"accruedRate\": \"string\",\n        \"accrualFrequency\": \"string\",\n        \"currency\": \"string\",\n        \"additionalValue\": \"string\",\n        \"additionalInfo\": \"string\",\n        \"additionalInfoUri\": \"string\",\n        \"discounts\": [\n          {\n            \"description\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"discountType\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"amount\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"balanceRate\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"transactionRate\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"accruedRate\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"feeRate\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"additionalValue\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"additionalInfo\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"additionalInfoUri\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"eligibility\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"description\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"discountType\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"amount\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"balanceRate\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"transactionRate\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"accruedRate\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"feeRate\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"additionalValue\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"additionalInfo\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"additionalInfoUri\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"eligibility\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ]\n      },\n      {\n        \"feeType\": \"WITHDRAWAL\",\n        \"name\": \"string\",\n        \"amount\": \"string\",\n        \"balanceRate\": \"string\",\n        \"transactionRate\": \"string\",\n        \"accruedRate\": \"string\",\n        \"accrualFrequency\": \"string\",\n        \"currency\": \"string\",\n        \"additionalValue\": \"string\",\n        \"additionalInfo\": \"string\",\n        \"additionalInfoUri\": \"string\",\n        \"discounts\": [\n          {\n            \"description\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"discountType\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"amount\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"balanceRate\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"transactionRate\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"accruedRate\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"feeRate\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"additionalValue\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"additionalInfo\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"additionalInfoUri\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"eligibility\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"description\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"discountType\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"amount\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"balanceRate\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"transactionRate\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"accruedRate\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"feeRate\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"additionalValue\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"additionalInfo\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"additionalInfoUri\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"eligibility\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ]\n      }\n    ],\n    \"depositRates\": [\n      {\n        \"depositRateType\": \"VARIABLE\",\n        \"rate\": \"string\",\n        \"calculationFrequency\": \"string\",\n        \"applicationFrequency\": \"string\",\n        \"tiers\": [\n          {\n            \"minimumValue\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"unitOfMeasure\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"maximumValue\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"rateApplicationMethod\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"applicabilityConditions\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"additionalInfo\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"additionalInfoUri\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"minimumValue\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"unitOfMeasure\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"maximumValue\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"rateApplicationMethod\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"applicabilityConditions\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"additionalInfo\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"additionalInfoUri\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"additionalValue\": \"string\",\n        \"additionalInfo\": \"string\",\n        \"additionalInfoUri\": \"string\"\n      },\n      {\n        \"depositRateType\": \"FIXED\",\n        \"rate\": \"string\",\n        \"calculationFrequency\": \"string\",\n        \"applicationFrequency\": \"string\",\n        \"tiers\": [\n          {\n            \"minimumValue\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"unitOfMeasure\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"maximumValue\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"rateApplicationMethod\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"applicabilityConditions\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"additionalInfo\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"additionalInfoUri\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"minimumValue\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"unitOfMeasure\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"maximumValue\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"rateApplicationMethod\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"applicabilityConditions\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"additionalInfo\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"additionalInfoUri\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"additionalValue\": \"string\",\n        \"additionalInfo\": \"string\",\n        \"additionalInfoUri\": \"string\"\n      }\n    ],\n    \"lendingRates\": [\n      {\n        \"lendingRateType\": \"PURCHASE\",\n        \"rate\": \"string\",\n        \"comparisonRate\": \"string\",\n        \"calculationFrequency\": \"string\",\n        \"applicationFrequency\": \"string\",\n        \"interestPaymentDue\": \"IN_ADVANCE\",\n        \"repaymentType\": \"INTEREST_ONLY\",\n        \"loanPurpose\": \"INVESTMENT\",\n        \"tiers\": [\n          {\n            \"minimumValue\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"unitOfMeasure\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"maximumValue\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"rateApplicationMethod\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"applicabilityConditions\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"additionalInfo\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"additionalInfoUri\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"minimumValue\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"unitOfMeasure\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"maximumValue\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"rateApplicationMethod\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"applicabilityConditions\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"additionalInfo\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"additionalInfoUri\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"additionalValue\": \"string\",\n        \"additionalInfo\": \"string\",\n        \"additionalInfoUri\": \"string\"\n      },\n      {\n        \"lendingRateType\": \"CASH_ADVANCE\",\n        \"rate\": \"string\",\n        \"comparisonRate\": \"string\",\n        \"calculationFrequency\": \"string\",\n        \"applicationFrequency\": \"string\",\n        \"interestPaymentDue\": \"IN_ARREARS\",\n        \"repaymentType\": \"INTEREST_ONLY\",\n        \"loanPurpose\": \"OWNER_OCCUPIED\",\n        \"tiers\": [\n          {\n            \"minimumValue\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"unitOfMeasure\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"maximumValue\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"rateApplicationMethod\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"applicabilityConditions\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"additionalInfo\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"additionalInfoUri\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"minimumValue\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"unitOfMeasure\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"maximumValue\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"rateApplicationMethod\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"applicabilityConditions\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"additionalInfo\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"additionalInfoUri\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"additionalValue\": \"string\",\n        \"additionalInfo\": \"string\",\n        \"additionalInfoUri\": \"string\"\n      }\n    ]\n  },\n  \"links\": {\n    \"self\": \"string\"\n  },\n  \"meta\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://mtls.dh.example.com/cds-au/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "ab30136f-c65e-4b1c-a1fb-bc1a04dc516a",
+    "name": "CDR Banking Banking Account Balances Products API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Specifications for resource endpoints applicable to data holders in the Banking sector.\n\nContact Support:\n Name: Data Standards Body\n Email: contact@dsb.gov.au",
+      "type": "text/plain"
+    }
+  }
+}
