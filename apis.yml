@@ -206,6 +206,8 @@ apis:
   humanURL: https://mystate.com.au/help-centre/open-banking-help/
   baseURL: https://public.cdr.mystate.com.au/cds-au/v1/banking/products
   tags:
+  - Product
+  tags_raw:
   - Products
   properties:
   - type: OpenAPI
