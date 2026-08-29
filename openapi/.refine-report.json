@@ -1,14 +1,8 @@
 {
   "provider": "mystate-bank",
   "sources": [
-    "mystate-bank-banking-account-balances-api-openapi.yml",
-    "mystate-bank-banking-account-direct-debits-api-openapi.yml",
-    "mystate-bank-banking-account-scheduled-payments-api-openapi.yml",
-    "mystate-bank-banking-account-transactions-api-openapi.yml",
-    "mystate-bank-banking-accounts-api-openapi.yml",
-    "mystate-bank-banking-payees-api-openapi.yml",
-    "mystate-bank-banking-products-api-openapi.yml",
-    "mystate-bank-products-api-openapi.yml"
+    "_original/mystate-bank-cds-banking-openapi.yml",
+    "_original/mystate-bank-cds-banking-products-openapi.yml"
   ],
   "outputs": [
     "mystate-bank-banking-account-balances-api-openapi.yml",
@@ -23,6 +17,20 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (2 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "mystate-bank-cds-banking-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "mystate-bank-cds-banking-products-openapi.yml: upgraded openapi 3.0.1 -> OpenAPI 3.2.0",
+    "mystate-bank-cds-banking-products-openapi.yml: declared missing tag: Products"
+  ],
+  "skipped": [
+    "mystate-bank-banking-account-balances-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "mystate-bank-banking-account-direct-debits-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "mystate-bank-banking-account-scheduled-payments-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "mystate-bank-banking-account-transactions-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "mystate-bank-banking-accounts-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "mystate-bank-banking-payees-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "mystate-bank-banking-products-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "mystate-bank-products-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }
