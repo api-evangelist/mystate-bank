@@ -13,6 +13,18 @@ description: MyState Bank is an Australian retail bank headquartered in Hobart, 
   / Open Banking) and exposes a public, unauthenticated Product Reference Data (PRD)
   API conforming to the Consumer Data Standards (CDS). Consumer data sharing beyond
   PRD is protected under the CDR's accredited-data-recipient model.
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: false
+  label: Hosted service · you call their endpoint
+  confidence: medium
+  source:
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: unknown
   onboarding: self-serve
