@@ -238,6 +238,9 @@ apis:
   - type: APIReference
     url: https://consumerdatastandardsaustralia.github.io/standards/#get-payees
 common:
+- type: CapabilityMap
+  url: capabilities/mystate-bank-capability-edges.yml
+  name: MyState Bank Business Capability Map
 - type: DomainSecurity
   url: security/mystate-bank-domain-security.yml
 - type: Website

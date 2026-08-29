@@ -1,0 +1,50 @@
+slug: mystate-bank
+provider: MyState Bank
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Banking & Capital Markets
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 3
+edges:
+- tag: Banking Products
+  spec_file: mystate-bank-banking-products-api-openapi.yml
+  capability_id: BC-1310.10
+  capability_id_l1: BC-1310
+  capability_name: Product Catalogue Management
+  confidence: 0.85
+  evidence: GET /banking/products  listBankingProducts  Get Products; GET /banking/products/{productId}  getBankingProductDetail;
+    schemas BankingProductV6, BankingProductFeeV2, BankingProductEligibilityV2, BankingProductBundle
+  reason: Publishes the bank's product reference data — product list, detail, fees, rates, constraints,
+    eligibility, bundles. This is the banking product catalogue/product master being exposed, so Product
+    Catalogue Management under Banking Product Management. Parameters and pricing appear as attributes
+    of the catalogue entries rather than as maintenance operations.
+- tag: Products
+  spec_file: mystate-bank-products-api-openapi.yml
+  capability_id: BC-1310.10
+  capability_id_l1: BC-1310
+  capability_name: Product Catalogue Management
+  confidence: 0.85
+  evidence: GET /banking/products  listProducts  Get Products; schemas BankingProductV3, BankingProductDepositRate,
+    BankingProductFee, BankingProductCategory, BankingProductDetailV3
+  reason: Consumer Data Standards product reference endpoints returning the banking product list and detail
+    with categories, deposit rates, fees, features and eligibility — the banking product catalogue exposed
+    for public comparison. Maps to Banking Product Management / Product Catalogue Management.
+- tag: Banking Account Scheduled Payments
+  spec_file: mystate-bank-banking-account-scheduled-payments-api-openapi.yml
+  capability_id: BC-1340.10
+  capability_id_l1: BC-1340
+  capability_name: Payment Initiation Management
+  confidence: 0.7
+  evidence: GET /banking/payments/scheduled  listScheduledPaymentsBulk  Get Scheduled Payments Bulk; schemas
+    BankingScheduledPaymentSetV2, BankingScheduledPaymentRecurrenceEventBased, BankingInstalmentPlan
+  reason: Surface describes standing/scheduled payment instructions with recurrence, payer and payee details
+    (BankingScheduledPaymentFrom/To, BankingDomesticPayeePayId), i.e. captured and authorised payment
+    instructions. Instalment plan endpoints are adjacent but the dominant content is scheduled payment
+    instruction data, so Payment Initiation Management.
