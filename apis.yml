@@ -212,31 +212,6 @@ apis:
       https://consumerdatastandardsaustralia.github.io/standards/#get-direct-debits-for-account
   - type: APIReference
     url: https://consumerdatastandardsaustralia.github.io/standards/#get-payees
-- aid: mystate-bank:mystate-bank-products-api
-  name: MyState Bank Products API
-  description: The Products API from MyState Bank — 2 operation(s) for products.
-  humanURL: https://mystate.com.au/help-centre/open-banking-help/
-  baseURL: https://public.cdr.mystate.com.au/cds-au/v1/banking/products
-  tags:
-  - Product
-  tags_raw:
-  - Products
-  properties:
-  - type: OpenAPI
-    url: openapi/mystate-bank-products-api-openapi.yml
-  - type: Documentation
-    url: https://mystate.com.au/help-centre/open-banking-help/
-  - type: APIReference
-    url: https://consumerdatastandardsaustralia.github.io/standards/#get-products
-  - type: APIReference
-    url: https://consumerdatastandardsaustralia.github.io/standards/#get-accounts
-  - type: APIReference
-    url: https://consumerdatastandardsaustralia.github.io/standards/#get-transactions-for-account
-  - type: APIReference
-    url: >-
-      https://consumerdatastandardsaustralia.github.io/standards/#get-direct-debits-for-account
-  - type: APIReference
-    url: https://consumerdatastandardsaustralia.github.io/standards/#get-payees
 common:
 - type: CapabilityMap
   url: capabilities/mystate-bank-capability-edges.yml
