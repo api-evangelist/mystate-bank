@@ -1,16 +1,34 @@
 generated: '2026-10-12'
-method: none
+method: searched
 source:
 - https://zapier.com/apps/mystate-bank/integrations
 - https://n8n.io/integrations/mystate-bank/
 - https://composio.dev/toolkits/mystate-bank
 - https://monid.ai/tools/mystate-bank
 checked:
+- https://api.cdr.gov.au/cdr-register/v1/all/data-holders/brands/summary
 - https://composio.dev/toolkits/mystate-bank
 - https://monid.ai/tools/mystate-bank
 - https://n8n.io/integrations/mystate-bank/
 - https://zapier.com/apps/mystate-bank/integrations
 summary: null
 marketplace_apps: []
-edges: []
+edges:
+- partner_name: Consumer Data Right
+  partner: null
+  type: contract
+  channel: regulator-register
+  relationship: standard-participant
+  direction: partner-built
+  evidence: https://api.cdr.gov.au/cdr-register/v1/all/data-holders/brands/summary
+  contract_reference:
+    register: CDR Register (Australia, ACCC)
+    spec_file: null
+    role: data-holder
+    registered_name: MyState Bank
+    register_id: 95aa74c1-9670-ef11-a4e6-000d3a79f8aa
+    matched_domain: mystate.com.au
+    api_families: null
+    detected_by: sweep-standard-registers.py
+    detected: '2026-10-12'
 templates: []
